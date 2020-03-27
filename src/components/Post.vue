@@ -1,11 +1,31 @@
 <template>
-    <h2>{{ title }}</h2>
+    <div class="post">
+       <div class="post-header">
+            <slot name="header"></slot>
+       </div>
+
+       <div class="post-content">
+            <slot name="content"></slot>
+       </div>
+
+       <div class="post-footer">
+            <slot name="footer"></slot>
+        </div>
+    </div>
 </template>
 
-<script>
-export default {
-    props: {
-        title: String
+<style scoped>
+    .post {
+      margin: 15px auto;
     }
-}
-</script>
+    .post-header {
+      padding: 5px 12px;
+      background-color: #eee;
+    }
+    .post-content {
+      font-size: 16px;
+    }
+    .post-footer {
+      font-style: italic;
+    }
+</style>
