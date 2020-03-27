@@ -5,7 +5,7 @@
     
     <Post>
        <h2 slot="header">Vue Components</h2>
-       <template slot="content">
+       <template>
           <p>Components are one of most importants things in Vue</p>
           <span>...</span>
        </template>

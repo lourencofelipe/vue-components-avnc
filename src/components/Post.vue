@@ -5,7 +5,8 @@
        </div>
 
        <div class="post-content">
-            <slot name="content"></slot>
+            <!-- using this, without name, the slot becomes default -->
+            <slot></slot>
        </div>
 
        <div class="post-footer">
