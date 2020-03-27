@@ -29,7 +29,4 @@
     .post-footer {
       font-style: italic;
     }
-    .post-paragrap {
-        color: green;
-    }
 </style>
