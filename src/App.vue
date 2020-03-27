@@ -1,34 +1,34 @@
 <template>
   <div id="app" class="container">
     
-    <h1>Vue JS</h1>
+    <h1>Dynamic Component</h1>
+    <button @click="selectedComponent = 'Home'">Home</button>
+   <!--  <button @click="selectedComponent = 'PostsLista'">Posts</button> -->
+    <button @click="selectedComponent = 'About'">About</button>
     
-    <Post>
-       <h2 slot="header">Vue Components</h2>
-       <template>
-          <p class="post-paragraph">Components are one of most importants things in Vue</p>
-          <span>...</span>
-       </template>
-       
-       <small slot="footer"> - {{ author }} </small>
-    </Post>
+    <component :is="'componenteSelecionado'"></component>
+
   </div>
 </template>
 
 <script>
 
 import Post from './components/Post.vue'
+import Home from './components/Home.vue'
+import About from './components/About.vue'
 
 export default {
   components: {
+    Home,
+    About,
     Post
   },
   data(){
     return {
-      author: 'Darth'
+      selectedComponent: 'Home'
     }
   }
-  }
+}
 </script>
 
 <style scoped>
