@@ -6,7 +6,7 @@
     <button @click="selectedComponent = 'PostsLista'">Posts</button>
     <button @click="selectedComponent = 'About'">About</button>
 
-    <keep-alive> 
+    <keep-alive :exlude="['Home', 'PostsLista']"> 
       <component :is="selectedComponent" v-bind="currentProps"></component>
     </keep-alive>
   </div>
