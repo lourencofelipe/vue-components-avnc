@@ -5,7 +5,7 @@
     <button @click="selectedComponent = 'Home'">Home</button>
     <button @click="selectedComponent = 'PostsLista'">Posts</button>
     <button @click="selectedComponent = 'About'">About</button>
-    <button @click="selectedComponent = 'Async'">asynchronous</button>
+    <button @click="selectedComponent = 'Asynchronous'">asynchronous</button>
 
     <keep-alive :exlude="['Home', 'PostsLista']"> 
       <component :is="selectedComponent" v-bind="currentProps"></component>
@@ -21,7 +21,17 @@ import PostsLista from './components/PostsLista.vue'
 
 export default {
   components: {
-    Asynchronous: () => import('./components/Asynchronous.vue'),
+    Asynchronous: () => ({
+      component: new Promise((resolve) => {
+        setTimeout(() => {
+          resolve(import('./components/Asynchronous.vue'))
+        }, 2000)
+      }),
+      loading: { template: '<p>Loading...</p>'},
+      errpr: { template: '<p>Error loading component</p>'},
+      delay: 200,
+      timeout: 3000
+    }),
     Home,
     About,
     PostsLista
