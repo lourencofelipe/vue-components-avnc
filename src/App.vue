@@ -5,6 +5,7 @@
     <button @click="selectedComponent = 'Home'">Home</button>
     <button @click="selectedComponent = 'PostsLista'">Posts</button>
     <button @click="selectedComponent = 'About'">About</button>
+    <button @click="selectedComponent = 'Async'">asynchronous</button>
 
     <keep-alive :exlude="['Home', 'PostsLista']"> 
       <component :is="selectedComponent" v-bind="currentProps"></component>
@@ -20,6 +21,7 @@ import PostsLista from './components/PostsLista.vue'
 
 export default {
   components: {
+    Asynchronous: () => import('./components/Asynchronous.vue'),
     Home,
     About,
     PostsLista
