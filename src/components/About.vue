@@ -9,6 +9,7 @@
 <script>
 
 export default {
+    name: 'AboutUs',
     data(){
         return {
             author: ''
