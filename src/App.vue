@@ -5,8 +5,10 @@
     <button @click="selectedComponent = 'Home'">Home</button>
     <button @click="selectedComponent = 'PostsLista'">Posts</button>
     <button @click="selectedComponent = 'About'">About</button>
-    <p>{{ selectedComponent }}</p>
-    <component :is="selectedComponent" v-bind="currentProps"></component>
+
+    <keep-alive> 
+      <component :is="selectedComponent" v-bind="currentProps"></component>
+    </keep-alive>
   </div>
 </template>
 
